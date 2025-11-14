@@ -1,0 +1,12 @@
+title: Isurwars Physics LogBook
+email: isurwars@gmail.com
+description: >-
+  This is an online log of my physics research
+baseurl: "" # Deja vacío si el sitio está en la raíz de un dominio (e.g., username.github.io)
+url: "https://isurwars.github.io/Physics-LogBook/" # Reemplaza con tu URL
+timezone: America/Mexico_City # Ajusta a tu zona horaria
+permalink: /:title/
+markdown: kramdown
+remote_theme: "jekyll/minima@v3.0.0" # Ejemplo de un tema popular
+minima:
+  skin: "auto"
