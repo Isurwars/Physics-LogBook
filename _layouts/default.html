@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: site.title | escape }}</title>
+
+    <!-- Enlace al CSS de KaTeX para las fórmulas (sin atributos de integridad) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+    
+    <!-- CSS Básico para la Bitácora y Soporte de Modo Oscuro -->
+    <style>
+        :root {
+            /* Modo Claro (Light Mode) */
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --link-color: #0077b6;
+            --header-color: #1a1a1a;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            /* Modo Oscuro (Dark Mode) */
+            :root {
+                --bg-color: #1e1e1e;
+                --text-color: #e0e0e0;
+                --link-color: #00b4d8;
+                --header-color: #ffffff;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+        
+        h1, h2, h3, h4 {
+            color: var(--header-color);
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 0.3em;
+        }
+
+        /* Estilos para el contenido de los posts */
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .post-list li {
+            margin-bottom: 20px;
+        }
+        
+        /* Asegura que KaTeX se ajuste al modo oscuro */
+        .katex {
+            color: var(--text-color);
+        }
+        .katex-display {
+            overflow-x: auto; /* Permite scroll horizontal para ecuaciones largas */
+            overflow-y: hidden;
+            padding: 1em 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1><a href="{{ site.baseurl }}/">{{ site.title | escape }}</a></h1>
+        <p>{{ site.description | escape }}</p>
+        <nav>
+            <a href="{{ site.baseurl }}/">Inicio</a> | 
+            <!-- Aquí puedes añadir más enlaces (Ej: Sobre mí, Archivo) -->
+        </nav>
+        <hr>
+    </header>
+
+    <main>
+        <!-- AQUÍ SE INYECTA EL CONTENIDO DE index.md, post.html, etc. -->
+        {{ content }}
+    </main>
+
+    <footer>
+        <hr>
+        <p>
+            &copy; {{ site.time | date: "%Y" }} {{ site.title | escape }}. | Creado con Jekyll.
+        </p>
+    </footer>
+
+    <!-- INSTRUCCIÓN CLAVE: Carga del JS de KaTeX y su configuración -->
+    {% if page.math %}
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                // Configuración para KaTeX: Delimitadores para ecuaciones
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},  // Bloques de ecuaciones
+                    {left: "$", right: "$", display: false}   // Ecuaciones en línea
+                ],
+                throwOnError : false
+            });
+        });
+    </script>
+    {% endif %}
+
+</body>
+</html>
