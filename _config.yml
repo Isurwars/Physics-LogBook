@@ -1,7 +1,7 @@
-title: Isurwars Physics LogBook
+title: Isurwars's Physics Logbook
 email: isurwars@gmail.com
 baseurl: ""
-url: "https://isurwars.github.io/Physics-LogBook/" # Reemplaza con tu URL
+url: "https://isurwars.github.io/" # Reemplaza con tu URL
 timezone: America/Mexico_City # Ajusta a tu zona horaria
 permalink: /:title/
 markdown: kramdown
