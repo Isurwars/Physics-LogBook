@@ -3,11 +3,23 @@ layout: default         # Usa el layout principal (default.html)
 title: Physics Logbook
 ---
 
-# 🔭 Bitácora de Física Cuántica
+# ⚛️ Quantum Physics Logbook
 
-¡Bienvenido(a) a mi bitácora de física! Este es un registro de mi viaje a través de la mecánica cuántica, la materia condensada y las simulaciones computacionales.
+Welcome to my physics logbook! This is a record of my journey through quantum mechanics, condensed matter, and computational simulations.
 
-## Últimas Entradas
+🙋 About the Logbook
+
+This space serves as my digital laboratory notebook and learning journal. Here I document:
+
+- Experiments and Simulations: Details of the setup and results of my practical work.
+
+- Theoretical Concepts: Detailed explanations of topics like the electronic structure of graphene or the Bloch formalism.
+
+- Code Development: Snippets of Python, Julia, or C++ for calculations and visualizations.
+
+My goal is to consolidate knowledge and share ideas with the community.
+
+# 📂 Latest Entries
 
 <ul class="post-list">
   {% for post in site.posts %}
